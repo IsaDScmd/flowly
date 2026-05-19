@@ -1,29 +1,15 @@
 import StatCard from "../components/StatCard"
+import DashboardHeader from "../components/dashboard/DashboardHeader"
+import TaskCard from "../components/dashboard/TaskCard"
 import { ClipboardList, Clock3, CheckCircle2 } from "lucide-react"
 
 function Dashboard() {
     return (
         <div>
 
-            {/* Header */}
-            <div className="flex items-center justify-between mb-8">
+            <DashboardHeader />
 
-                <div>
-                    <h1 className="text-4xl font-bold text-[#1E1B4B]">
-                        Flowly
-                    </h1>
-
-                    <p className="text-gray-500 mt-2">
-                        Manage your tasks and workflow
-                    </p>
-                </div>
-
-                <button className="bg-[#6C5CE7] text-white px-6 py-3 rounded-2xl font-semibold hover:opacity-90 transition">
-                    + New Task
-                </button>
-
-            </div>
-
+            {/* Stat cards */}
             <div className="grid grid-cols-3 gap-6">
 
                 <StatCard
@@ -52,6 +38,33 @@ function Dashboard() {
                     }
                 />
 
+            </div>
+
+            {/* Recent Tasks */}
+            <div className="mt-10">
+                <h2 className="text-2xl font-bold text-[#1E1B4B] mb-6">
+                    Recent Tasks
+                </h2>
+
+                <div className="grid grid-cols-3 gap-6">
+                    <TaskCard
+                        title="Design Flowly dashboard"
+                        priority="High"
+                        dueDate="Today"
+                    />
+
+                    <TaskCard
+                        title="Create reusable components"
+                        priority="Medium"
+                        dueDate="Tomorrow"
+                    />
+
+                    <TaskCard
+                        title="Prepare project README"
+                        priority="Low"
+                        dueDate="Friday"
+                    />
+                </div>
             </div>
 
         </div>
