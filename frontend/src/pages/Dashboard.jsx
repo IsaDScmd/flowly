@@ -52,6 +52,7 @@ function Dashboard() {
 
                     <KanbanColumn
                         title="To Do"
+                        accentColor="bg-blue-400"
                         tasks={[
                             {
                                 title: "Create login page",
@@ -68,6 +69,7 @@ function Dashboard() {
 
                     <KanbanColumn
                         title="In Progress"
+                        accentColor="bg-yellow-400"
                         tasks={[
                             {
                                 title: "Design dashboard UI",
@@ -79,6 +81,7 @@ function Dashboard() {
 
                     <KanbanColumn
                         title="Done"
+                        accentColor="bg-green-400"
                         tasks={[
                             {
                                 title: "Create Flowly branding",
