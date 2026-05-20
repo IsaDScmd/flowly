@@ -1,6 +1,7 @@
 import StatCard from "../components/StatCard"
 import DashboardHeader from "../components/dashboard/DashboardHeader"
 import TaskCard from "../components/dashboard/TaskCard"
+import KanbanColumn from "../components/dashboard/KanbanColumn"
 import { ClipboardList, Clock3, CheckCircle2 } from "lucide-react"
 
 function Dashboard() {
@@ -40,31 +41,55 @@ function Dashboard() {
 
             </div>
 
-            {/* Recent Tasks */}
-            <div className="mt-10">
+            {/* Kanban Board */}
+            <div className="mt-12">
+
                 <h2 className="text-2xl font-bold text-[#1E1B4B] mb-6">
-                    Recent Tasks
+                    Board Preview
                 </h2>
 
                 <div className="grid grid-cols-3 gap-6">
-                    <TaskCard
-                        title="Design Flowly dashboard"
-                        priority="High"
-                        dueDate="Today"
+
+                    <KanbanColumn
+                        title="To Do"
+                        tasks={[
+                            {
+                                title: "Create login page",
+                                priority: "High",
+                                dueDate: "Today",
+                            },
+                            {
+                                title: "Setup routing",
+                                priority: "Medium",
+                                dueDate: "Tomorrow",
+                            },
+                        ]}
                     />
 
-                    <TaskCard
-                        title="Create reusable components"
-                        priority="Medium"
-                        dueDate="Tomorrow"
+                    <KanbanColumn
+                        title="In Progress"
+                        tasks={[
+                            {
+                                title: "Design dashboard UI",
+                                priority: "High",
+                                dueDate: "Today",
+                            },
+                        ]}
                     />
 
-                    <TaskCard
-                        title="Prepare project README"
-                        priority="Low"
-                        dueDate="Friday"
+                    <KanbanColumn
+                        title="Done"
+                        tasks={[
+                            {
+                                title: "Create Flowly branding",
+                                priority: "Low",
+                                dueDate: "Yesterday",
+                            },
+                        ]}
                     />
+
                 </div>
+
             </div>
 
         </div>
