@@ -1,4 +1,4 @@
-import StatCard from "../components/StatCard"
+import StatCard from "../components/dashboard/StatCard"
 import DashboardHeader from "../components/dashboard/DashboardHeader"
 import TaskCard from "../components/dashboard/TaskCard"
 import KanbanColumn from "../components/dashboard/KanbanColumn"
