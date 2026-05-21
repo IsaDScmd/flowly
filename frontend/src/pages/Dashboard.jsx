@@ -55,14 +55,16 @@ function Dashboard() {
                         accentColor="bg-blue-400"
                         tasks={[
                             {
-                                title: "Create login page",
+                                title: "Revisar incidencias IQD",
                                 priority: "High",
                                 dueDate: "Today",
+                                type: "recurring",
                             },
                             {
-                                title: "Setup routing",
+                                title: "LPA audit",
                                 priority: "Medium",
                                 dueDate: "Tomorrow",
+                                type: "period",
                             },
                         ]}
                     />
@@ -72,9 +74,10 @@ function Dashboard() {
                         accentColor="bg-yellow-400"
                         tasks={[
                             {
-                                title: "Design dashboard UI",
+                                title: "Hacer teardown IP Basis",
                                 priority: "High",
                                 dueDate: "Today",
+                                type: "single",
                             },
                         ]}
                     />
@@ -84,9 +87,10 @@ function Dashboard() {
                         accentColor="bg-green-400"
                         tasks={[
                             {
-                                title: "Create Flowly branding",
+                                title: "Entregar 4 FSV Audi",
                                 priority: "Low",
                                 dueDate: "Yesterday",
+                                type: "recurring",
                             },
                         ]}
                     />

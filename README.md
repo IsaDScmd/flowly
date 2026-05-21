@@ -57,6 +57,8 @@ Users can create boards, organize tasks into columns, and move tasks through dif
 
 ### Task
 
+### Task
+
 - id
 - title
 - description
@@ -65,6 +67,10 @@ Users can create boards, organize tasks into columns, and move tasks through dif
 - priority
 - dueDate
 - position
+- type
+- repeatFrequency
+- startDate
+- endDate
 - createdAt
 - updatedAt
 

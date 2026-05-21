@@ -24,6 +24,7 @@ function KanbanColumn({ title, tasks, accentColor = "bg-[#6C5CE7]" }) {
                         title={task.title}
                         priority={task.priority}
                         dueDate={task.dueDate}
+                        type={task.type}
                     />
                 ))}
             </div>
