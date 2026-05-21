@@ -1,5 +1,6 @@
+import { Outlet } from "react-router-dom"
+
 import Sidebar from "../components/Sidebar"
-import Dashboard from "../pages/Dashboard"
 
 function MainLayout() {
     return (
@@ -7,7 +8,7 @@ function MainLayout() {
             <Sidebar />
 
             <main className="flex-1 p-8">
-                <Dashboard />
+                <Outlet />
             </main>
         </div>
     )
