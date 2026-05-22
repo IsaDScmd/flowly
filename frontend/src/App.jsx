@@ -6,14 +6,17 @@ import Register from "./pages/Register"
 import Dashboard from "./pages/Dashboard"
 import Boards from "./pages/Boards"
 import Settings from "./pages/Settings"
+import AuthLayout from "./layouts/AuthLayout"
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Navigate to="/dashboard" />} />
 
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
+      <Route path="/" element={<AuthLayout />}>
+        <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
+      </Route>
 
       <Route path="/dashboard" element={<MainLayout />}>
         <Route index element={<Dashboard />} />
