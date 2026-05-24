@@ -3,6 +3,7 @@ function Button({
     type = "button",
     onClick,
     variant = "primary",
+    fullWidth = true,
 }) {
 
     const variants = {
@@ -18,7 +19,8 @@ function Button({
             type={type}
             onClick={onClick}
             className={`
-        w-full py-3 rounded-2xl
+        ${fullWidth ? "w-full" : ""}
+px-5 py-3 rounded-2xl
         font-semibold transition
         ${variants[variant]}
       `}
