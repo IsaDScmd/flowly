@@ -1,7 +1,9 @@
-function BoardCard({ title, description, variant = "default" }) {
+import { Link } from "react-router-dom"
+
+function BoardCard({ title, description, variant = "default", to }) {
     const isPrimary = variant === "primary"
 
-    return (
+    const content = (
         <div
             className={`
         p-6 rounded-3xl shadow-sm hover:shadow-md
@@ -21,6 +23,16 @@ function BoardCard({ title, description, variant = "default" }) {
             </p>
         </div>
     )
+
+    if (to) {
+        return (
+            <Link to={to}>
+                {content}
+            </Link>
+        )
+    }
+
+    return content
 }
 
 export default BoardCard

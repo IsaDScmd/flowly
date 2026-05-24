@@ -8,6 +8,7 @@ import Boards from "./pages/Boards"
 import Settings from "./pages/Settings"
 import AuthLayout from "./layouts/AuthLayout"
 import ProtectedRoute from "./components/ProtectedRoute"
+import BoardDetail from "./pages/BoardDetail"
 
 function App() {
   return (
@@ -50,6 +51,17 @@ function App() {
         }
       >
         <Route index element={<Settings />} />
+      </Route>
+
+      <Route
+        path="/boards/:boardId"
+        element={
+          <ProtectedRoute>
+            <MainLayout />
+          </ProtectedRoute>
+        }
+      >
+        <Route index element={<BoardDetail />} />
       </Route>
     </Routes>
   )

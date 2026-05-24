@@ -17,6 +17,7 @@ function Boards() {
                 <BoardCard
                     title="Work Tasks"
                     description="Daily work organization and priorities."
+                    to="/boards/work"
                 />
 
                 <BoardCard
