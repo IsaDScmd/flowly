@@ -23,6 +23,7 @@ function Boards() {
                 <BoardCard
                     title="Quality Follow-up"
                     description="Track audits, incidents and recurring actions."
+                    to="/boards/quality"
                 />
 
                 <BoardCard

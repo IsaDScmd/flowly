@@ -1,11 +1,15 @@
+import { useParams } from "react-router-dom"
 import KanbanColumn from "../components/dashboard/KanbanColumn"
 
 function BoardDetail() {
+
+    const { boardId } = useParams()
+
     return (
         <div>
             <div className="mb-8">
                 <h1 className="text-4xl font-bold text-[#1E1B4B]">
-                    Work Tasks
+                    {boardId.charAt(0).toUpperCase() + boardId.slice(1)}
                 </h1>
 
                 <p className="text-gray-500 mt-2">
