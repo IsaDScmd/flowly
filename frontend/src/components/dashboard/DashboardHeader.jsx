@@ -12,10 +12,6 @@ function DashboardHeader() {
                 </p>
             </div>
 
-            <button className="bg-[#6C5CE7] text-white px-6 py-3 rounded-2xl font-semibold hover:opacity-90 transition">
-                + New Task
-            </button>
-
         </div>
     )
 }

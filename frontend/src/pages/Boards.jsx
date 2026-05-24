@@ -15,21 +15,21 @@ function Boards() {
 
             <div className="grid grid-cols-3 gap-6">
                 <BoardCard
-                    title="Work Tasks"
-                    description="Daily work organization and priorities."
+                    title="Work"
+                    description="Manage your professional workflow and priorities."
                     to="/boards/work"
                 />
 
                 <BoardCard
-                    title="Quality Follow-up"
-                    description="Track audits, incidents and recurring actions."
-                    to="/boards/quality"
+                    title="Personal"
+                    description="Track personal goals and daily life tasks."
+                    to="/boards/personal"
                 />
 
                 <BoardCard
-                    title="+ New Board"
-                    description="Create a new workspace."
-                    variant="primary"
+                    title="Projects"
+                    description="Organize side projects and long-term initiatives."
+                    to="/boards/projects"
                 />
             </div>
         </div>
