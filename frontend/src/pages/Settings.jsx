@@ -1,4 +1,5 @@
 import SettingsSection from "../components/settings/SettingsSection"
+import FormInput from "../components/ui/FormInput"
 
 function Settings() {
     return (
@@ -17,16 +18,15 @@ function Settings() {
                 <SettingsSection title="Profile">
 
                     <div className="flex flex-col gap-4">
-                        <input
-                            type="text"
-                            placeholder="Name"
-                            className="w-full px-4 py-3 rounded-2xl border border-gray-200 outline-none focus:border-[#6C5CE7]"
+                        <FormInput
+                            label="Name"
+                            placeholder="Your name"
                         />
 
-                        <input
+                        <FormInput
+                            label="Email"
                             type="email"
-                            placeholder="Email"
-                            className="w-full px-4 py-3 rounded-2xl border border-gray-200 outline-none focus:border-[#6C5CE7]"
+                            placeholder="you@example.com"
                         />
 
                         <button className="bg-[#6C5CE7] text-white py-3 rounded-2xl font-semibold hover:opacity-90 transition">

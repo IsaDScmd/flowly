@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import FormInput from "../components/ui/FormInput"
 
 function Register() {
 
@@ -44,28 +45,20 @@ function Register() {
                 className="flex flex-col gap-5"
             >
                 <div>
-                    <label className="block text-sm font-semibold text-[#1E1B4B] mb-2">
-                        Name
-                    </label>
-
-                    <input
-                        type="text"
+                    <FormInput
+                        label="Name"
                         placeholder="Your name"
                         value={name}
                         onChange={(e) => {
                             setName(e.target.value)
                             setError("")
                         }}
-                        className="w-full px-4 py-3 rounded-2xl border border-gray-200 outline-none focus:border-[#6C5CE7]"
                     />
                 </div>
 
                 <div>
-                    <label className="block text-sm font-semibold text-[#1E1B4B] mb-2">
-                        Email
-                    </label>
-
-                    <input
+                    <FormInput
+                        label="Email"
                         type="email"
                         placeholder="you@example.com"
                         value={email}
@@ -73,16 +66,12 @@ function Register() {
                             setEmail(e.target.value)
                             setError("")
                         }}
-                        className="w-full px-4 py-3 rounded-2xl border border-gray-200 outline-none focus:border-[#6C5CE7]"
                     />
                 </div>
 
                 <div>
-                    <label className="block text-sm font-semibold text-[#1E1B4B] mb-2">
-                        Password
-                    </label>
-
-                    <input
+                    <FormInput
+                        label="Password"
                         type="password"
                         placeholder="••••••••"
                         value={password}
@@ -90,7 +79,6 @@ function Register() {
                             setPassword(e.target.value)
                             setError("")
                         }}
-                        className="w-full px-4 py-3 rounded-2xl border border-gray-200 outline-none focus:border-[#6C5CE7]"
                     />
                 </div>
 
