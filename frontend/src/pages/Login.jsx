@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import FormInput from "../components/ui/FormInput"
+import Button from "../components/ui/Button"
 
 function Login() {
 
@@ -69,12 +70,9 @@ function Login() {
                     />
                 </div>
 
-                <button
-                    type="submit"
-                    className="bg-[#6C5CE7] text-white py-3 rounded-2xl font-semibold hover:opacity-90 transition"
-                >
+                <Button type="submit">
                     Log in
-                </button>
+                </Button>
 
                 <p className="text-sm text-gray-500 text-center">
                     Don't have an account?{" "}

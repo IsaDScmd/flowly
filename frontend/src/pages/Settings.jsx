@@ -1,5 +1,6 @@
 import SettingsSection from "../components/settings/SettingsSection"
 import FormInput from "../components/ui/FormInput"
+import Button from "../components/ui/Button"
 
 function Settings() {
     return (
@@ -29,9 +30,9 @@ function Settings() {
                             placeholder="you@example.com"
                         />
 
-                        <button className="bg-[#6C5CE7] text-white py-3 rounded-2xl font-semibold hover:opacity-90 transition">
+                        <Button>
                             Save changes
-                        </button>
+                        </Button>
                     </div>
                 </SettingsSection>
 
