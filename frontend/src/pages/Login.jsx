@@ -1,12 +1,25 @@
 import { useState } from "react"
+import { Link, useNavigate } from "react-router-dom"
 
 function Login() {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [error, setError] = useState("")
+    const navigate = useNavigate()
 
     const handleSubmit = (e) => {
         e.preventDefault()
+
+        if (!email || !password) {
+            setError("Please fill in all fields")
+            return
+        }
+
+        setError("")
+
+        localStorage.setItem("flowlyToken", "fake-token")
+        navigate("/dashboard")
     }
 
     return (
@@ -18,6 +31,12 @@ function Login() {
             <p className="text-gray-500 mb-8">
                 Log in to continue managing your tasks.
             </p>
+
+            {error && (
+                <p className="bg-red-100 text-red-500 text-sm p-3 rounded-2xl mb-5">
+                    {error}
+                </p>
+            )}
 
             <form
                 onSubmit={handleSubmit}
@@ -32,7 +51,10 @@ function Login() {
                         type="email"
                         placeholder="you@example.com"
                         value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        onChange={(e) => {
+                            setEmail(e.target.value)
+                            setError("")
+                        }}
                         className="w-full px-4 py-3 rounded-2xl border border-gray-200 outline-none focus:border-[#6C5CE7]"
                     />
                 </div>
@@ -46,7 +68,10 @@ function Login() {
                         type="password"
                         placeholder="••••••••"
                         value={password}
-                        onChange={(e) => setPassword(e.target.value)}
+                        onChange={(e) => {
+                            setPassword(e.target.value)
+                            setError("")
+                        }}
                         className="w-full px-4 py-3 rounded-2xl border border-gray-200 outline-none focus:border-[#6C5CE7]"
                     />
                 </div>
@@ -57,6 +82,17 @@ function Login() {
                 >
                     Log in
                 </button>
+
+                <p className="text-sm text-gray-500 text-center">
+                    Don't have an account?{" "}
+
+                    <Link
+                        to="/register"
+                        className="text-[#6C5CE7] font-semibold hover:underline"
+                    >
+                        Sing up
+                    </Link>
+                </p>
             </form>
         </div>
     )

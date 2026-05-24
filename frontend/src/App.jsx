@@ -7,6 +7,7 @@ import Dashboard from "./pages/Dashboard"
 import Boards from "./pages/Boards"
 import Settings from "./pages/Settings"
 import AuthLayout from "./layouts/AuthLayout"
+import ProtectedRoute from "./components/ProtectedRoute"
 
 function App() {
   return (
@@ -18,15 +19,36 @@ function App() {
         <Route path="register" element={<Register />} />
       </Route>
 
-      <Route path="/dashboard" element={<MainLayout />}>
+      <Route
+        path="/dashboard"
+        element={
+          <ProtectedRoute>
+            <MainLayout />
+          </ProtectedRoute>
+        }
+      >
         <Route index element={<Dashboard />} />
       </Route>
 
-      <Route path="/boards" element={<MainLayout />}>
+      <Route
+        path="/boards"
+        element={
+          <ProtectedRoute>
+            <MainLayout />
+          </ProtectedRoute>
+        }
+      >
         <Route index element={<Boards />} />
       </Route>
 
-      <Route path="/settings" element={<MainLayout />}>
+      <Route
+        path="/settings"
+        element={
+          <ProtectedRoute>
+            <MainLayout />
+          </ProtectedRoute>
+        }
+      >
         <Route index element={<Settings />} />
       </Route>
     </Routes>
