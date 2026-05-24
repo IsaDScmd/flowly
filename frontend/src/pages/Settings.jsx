@@ -1,7 +1,73 @@
+import SettingsSection from "../components/settings/SettingsSection"
+
 function Settings() {
     return (
         <div>
-            <h1>Settings Page</h1>
+            <div className="mb-8">
+                <h1 className="text-4xl font-bold text-[#1E1B4B]">
+                    Settings
+                </h1>
+
+                <p className="text-gray-500 mt-2">
+                    Manage your account and Flowly preferences.
+                </p>
+            </div>
+
+            <div className="grid grid-cols-2 gap-6">
+                <SettingsSection title="Profile">
+
+                    <div className="flex flex-col gap-4">
+                        <input
+                            type="text"
+                            placeholder="Name"
+                            className="w-full px-4 py-3 rounded-2xl border border-gray-200 outline-none focus:border-[#6C5CE7]"
+                        />
+
+                        <input
+                            type="email"
+                            placeholder="Email"
+                            className="w-full px-4 py-3 rounded-2xl border border-gray-200 outline-none focus:border-[#6C5CE7]"
+                        />
+
+                        <button className="bg-[#6C5CE7] text-white py-3 rounded-2xl font-semibold hover:opacity-90 transition">
+                            Save changes
+                        </button>
+                    </div>
+                </SettingsSection>
+
+                <SettingsSection title="Preferences">
+
+                    <div className="flex items-center justify-between py-4 border-b border-gray-100">
+                        <div>
+                            <p className="font-semibold text-[#1E1B4B]">
+                                Email notifications
+                            </p>
+                            <p className="text-sm text-gray-500">
+                                Receive updates about your tasks.
+                            </p>
+                        </div>
+
+                        <span className="bg-[#F3F0FF] text-[#6C5CE7] px-3 py-1 rounded-full text-sm font-semibold">
+                            On
+                        </span>
+                    </div>
+
+                    <div className="flex items-center justify-between py-4">
+                        <div>
+                            <p className="font-semibold text-[#1E1B4B]">
+                                Theme
+                            </p>
+                            <p className="text-sm text-gray-500">
+                                Current theme preference.
+                            </p>
+                        </div>
+
+                        <span className="bg-gray-100 text-gray-500 px-3 py-1 rounded-full text-sm font-semibold">
+                            Light
+                        </span>
+                    </div>
+                </SettingsSection>
+            </div>
         </div>
     )
 }
