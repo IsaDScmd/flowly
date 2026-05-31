@@ -12,6 +12,33 @@ function BoardDetail() {
     const [taskTitle, setTaskTitle] = useState("")
     const [taskPriority, setTaskPriority] = useState("Medium")
     const [taskType, setTaskType] = useState("single")
+    const [tasks, setTasks] = useState([
+        {
+            title: "Review daily incidents",
+            priority: "High",
+            dueDate: "Today",
+            type: "recurring",
+        },
+    ])
+
+    const handleCreateTask = (e) => {
+        e.preventDefault()
+
+        const newTask = {
+            title: taskTitle,
+            priority: taskPriority,
+            dueDate: "Today",
+            type: taskType,
+        }
+
+        setTasks([...tasks, newTask])
+
+        setTaskTitle("")
+        setTaskPriority("Medium")
+        setTaskType("single")
+        setIsTaskModalOpen(false)
+    }
+
     const boards = {
         work: {
             title: "Work",
@@ -80,14 +107,7 @@ function BoardDetail() {
                 <KanbanColumn
                     title="To Do"
                     accentColor="bg-blue-400"
-                    tasks={[
-                        {
-                            title: "Review daily incidents",
-                            priority: "High",
-                            dueDate: "Today",
-                            type: "recurring",
-                        },
-                    ]}
+                    tasks={tasks}
                 />
 
                 <KanbanColumn
@@ -141,7 +161,10 @@ function BoardDetail() {
                             Create New Task
                         </h2>
 
-                        <form className="flex flex-col gap-5">
+                        <form
+                            onSubmit={handleCreateTask}
+                            className="flex flex-col gap-5"
+                        >
                             <FormInput
                                 label="Task title"
                                 placeholder="Example: Review weekly report"
