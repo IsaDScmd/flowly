@@ -1,9 +1,10 @@
 import { useParams } from "react-router-dom"
 import KanbanColumn from "../components/dashboard/KanbanColumn"
 import Button from "../components/ui/Button"
-import FormInput from "../components/ui/FormInput"
+import TaskModal from "../components/dashboard/TaskModal"
 import { Briefcase, User, FolderKanban, Plus } from "lucide-react"
 import { useState } from "react"
+
 
 function BoardDetail() {
 
@@ -12,6 +13,7 @@ function BoardDetail() {
     const [taskTitle, setTaskTitle] = useState("")
     const [taskPriority, setTaskPriority] = useState("Medium")
     const [taskType, setTaskType] = useState("single")
+    const [taskError, setTaskError] = useState("")
     const [tasks, setTasks] = useState([
         {
             title: "Review daily incidents",
@@ -25,10 +27,16 @@ function BoardDetail() {
         setTaskTitle("")
         setTaskPriority("Medium")
         setTaskType("single")
+        setTaskError("")
     }
 
     const handleCreateTask = (e) => {
         e.preventDefault()
+
+        if (!taskTitle.trim()) {
+            setTaskError("Task title is required")
+            return
+        }
 
         const newTask = {
             title: taskTitle,
@@ -39,9 +47,6 @@ function BoardDetail() {
 
         setTasks([...tasks, newTask])
 
-        setTaskTitle("")
-        setTaskPriority("Medium")
-        setTaskType("single")
         resetTaskForm()
         setIsTaskModalOpen(false)
     }
@@ -145,96 +150,26 @@ function BoardDetail() {
             </div>
 
             {isTaskModalOpen && (
-                <div
-                    className="
-      fixed inset-0
-      bg-black/40
-      flex items-center justify-center
-      z-50
-    "
-                >
-
-                    <div
-                        className="
-        bg-white
-        w-full max-w-md
-        rounded-3xl
-        p-8
-        shadow-xl
-      "
-                    >
-
-                        <h2 className="text-2xl font-bold text-[#1E1B4B] mb-6">
-                            Create New Task
-                        </h2>
-
-                        <form
-                            onSubmit={handleCreateTask}
-                            className="flex flex-col gap-5"
-                        >
-                            <FormInput
-                                label="Task title"
-                                placeholder="Example: Review weekly report"
-                                value={taskTitle}
-                                onChange={(e) => setTaskTitle(e.target.value)}
-                            />
-
-                            <div>
-                                <label className="block text-sm font-semibold text-[#1E1B4B] mb-2">
-                                    Priority
-                                </label>
-
-                                <select
-                                    value={taskPriority}
-                                    onChange={(e) => setTaskPriority(e.target.value)}
-                                    className="w-full px-4 py-3 rounded-2xl border border-gray-200 outline-none focus:border-[#6C5CE7]"
-                                >
-                                    <option value="High">High</option>
-                                    <option value="Medium">Medium</option>
-                                    <option value="Low">Low</option>
-                                </select>
-                            </div>
-
-                            <div>
-                                <label className="block text-sm font-semibold text-[#1E1B4B] mb-2">
-                                    Task type
-                                </label>
-
-                                <select
-                                    value={taskType}
-                                    onChange={(e) => setTaskType(e.target.value)}
-                                    className="w-full px-4 py-3 rounded-2xl border border-gray-200 outline-none focus:border-[#6C5CE7]"
-                                >
-                                    <option value="single">One-time</option>
-                                    <option value="recurring">Recurring</option>
-                                    <option value="period">Period</option>
-                                </select>
-                            </div>
-
-                            <div className="flex gap-3 pt-2">
-                                <Button type="submit">
-                                    Create Task
-                                </Button>
-
-                                <Button
-                                    type="button"
-                                    variant="secondary"
-                                    onClick={() => {
-                                        resetTaskForm()
-                                        setIsTaskModalOpen(false)
-                                    }}
-                                >
-                                    Cancel
-                                </Button>
-                            </div>
-                        </form>
-
-                    </div>
-
-                </div>
+                <TaskModal
+                    taskTitle={taskTitle}
+                    setTaskTitle={setTaskTitle}
+                    taskPriority={taskPriority}
+                    setTaskPriority={setTaskPriority}
+                    taskType={taskType}
+                    setTaskType={setTaskType}
+                    taskError={taskError}
+                    setTaskError={setTaskError}
+                    onSubmit={handleCreateTask}
+                    onCancel={() => {
+                        resetTaskForm()
+                        setIsTaskModalOpen(false)
+                    }}
+                />
             )}
+
         </div>
     )
 }
+
 
 export default BoardDetail
