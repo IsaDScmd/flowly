@@ -21,6 +21,12 @@ function BoardDetail() {
         },
     ])
 
+    const resetTaskForm = () => {
+        setTaskTitle("")
+        setTaskPriority("Medium")
+        setTaskType("single")
+    }
+
     const handleCreateTask = (e) => {
         e.preventDefault()
 
@@ -36,6 +42,7 @@ function BoardDetail() {
         setTaskTitle("")
         setTaskPriority("Medium")
         setTaskType("single")
+        resetTaskForm()
         setIsTaskModalOpen(false)
     }
 
@@ -212,7 +219,10 @@ function BoardDetail() {
                                 <Button
                                     type="button"
                                     variant="secondary"
-                                    onClick={() => setIsTaskModalOpen(false)}
+                                    onClick={() => {
+                                        resetTaskForm()
+                                        setIsTaskModalOpen(false)
+                                    }}
                                 >
                                     Cancel
                                 </Button>
