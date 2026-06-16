@@ -3,6 +3,7 @@ function TaskCard({
     priority,
     dueDate,
     type = "single",
+    onDelete,
 }) {
 
     const taskTypeStyles = {
@@ -50,9 +51,18 @@ function TaskCard({
                     {priority}
                 </span>
 
-                <span className="text-sm text-gray-400">
-                    {dueDate}
-                </span>
+                <div className="flex items-center gap-3">
+                    <span className="text-sm text-gray-400">
+                        {dueDate}
+                    </span>
+
+                    <button
+                        onClick={onDelete}
+                        className="text-gray-300 hover:text-red-400 transition"
+                    >
+                        ✕
+                    </button>
+                </div>
 
             </div>
 

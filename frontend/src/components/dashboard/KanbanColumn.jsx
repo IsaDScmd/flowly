@@ -1,6 +1,11 @@
 import TaskCard from "./TaskCard"
 
-function KanbanColumn({ title, tasks, accentColor = "bg-[#6C5CE7]" }) {
+function KanbanColumn({
+    title,
+    tasks,
+    accentColor = "bg-[#6C5CE7]",
+    onDelete,
+}) {
     return (
         <div className="bg-white/70 border border-white p-5 rounded-3xl min-h-[500px] shadow-sm">
             <div className="flex items-center justify-between mb-6">
@@ -25,6 +30,7 @@ function KanbanColumn({ title, tasks, accentColor = "bg-[#6C5CE7]" }) {
                         priority={task.priority}
                         dueDate={task.dueDate}
                         type={task.type}
+                        onDelete={() => onDelete(index)}
                     />
                 ))}
             </div>

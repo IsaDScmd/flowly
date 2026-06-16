@@ -51,6 +51,12 @@ function BoardDetail() {
         setIsTaskModalOpen(false)
     }
 
+    const handleDeleteTask = (taskIndex) => {
+        const updatedTasks = tasks.filter((task, index) => index !== taskIndex)
+
+        setTasks(updatedTasks)
+    }
+
     const boards = {
         work: {
             title: "Work",
@@ -120,6 +126,7 @@ function BoardDetail() {
                     title="To Do"
                     accentColor="bg-blue-400"
                     tasks={tasks}
+                    onDelete={handleDeleteTask}
                 />
 
                 <KanbanColumn
